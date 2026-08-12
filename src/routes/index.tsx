@@ -93,11 +93,12 @@ function Home() {
         <h2 className="text-3xl">What a group actually offers</h2>
         <p className="mt-4 max-w-2xl text-lg">“{FOCUS_STATEMENT}”</p>
         <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-          Not “we treat this area with these four tools”. Peers support practice. They do not
-          diagnose, promise relief, or pressure anyone into a technique.
+          Not “we treat this area with these tools”. Peers support practice. They do not diagnose,
+          promise relief, or pressure anyone into a technique.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
           {TECHNIQUES.map((t) => (
             <article key={t.id} className="rounded-sm border border-border bg-card p-5">
               <h3 className="text-lg">{t.name}</h3>
