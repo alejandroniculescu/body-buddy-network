@@ -17,13 +17,13 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/facilitate")({
   head: () => ({
     meta: [
-      { title: "Facilitate a group — leaders & onboarders — Kinship" },
+      { title: "Facilitate a group — leaders & onboarders — MassageNow" },
       {
         name: "description",
         content:
           "Open a circle, review applications, and accept members. When a group reaches eight, the next circle opens automatically.",
       },
-      { property: "og:title", content: "Facilitate a group — Kinship" },
+      { property: "og:title", content: "Facilitate a group — MassageNow" },
       {
         property: "og:description",
         content: "Leaders and onboarders open circles and review applications here.",

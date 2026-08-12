@@ -7,13 +7,13 @@ import { REFERRAL_ROUTE, RED_FLAGS, regionLabel, toleranceLabel } from "@/lib/do
 export const Route = createFileRoute("/intake/result")({
   head: () => ({
     meta: [
-      { title: "Your screening result — Kinship" },
+      { title: "Your screening result — MassageNow" },
       {
         name: "description",
         content:
           "What your intake answers mean for next steps: a clinician referral, or the peer groups you can apply to.",
       },
-      { property: "og:title", content: "Your screening result — Kinship" },
+      { property: "og:title", content: "Your screening result — MassageNow" },
       {
         property: "og:description",
         content: "Either a referral route, or the groups matched to your area and tolerance.",

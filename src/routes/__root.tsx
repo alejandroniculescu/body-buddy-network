@@ -80,17 +80,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kinship — peer groups for persistent pain" },
+      { title: "MassageNow — weekly self-guided massage peer groups" },
       {
         name: "description",
         content:
-          "Screened intake, clinician-designed safety protocol, and small peer groups of eight for people living with persistent pain.",
+          "Screened intake, a clinician-designed safety protocol, and small peer groups of eight practising weekly self-guided massage.",
       },
-      { property: "og:title", content: "Kinship — peer groups for persistent pain" },
+      { property: "og:title", content: "MassageNow — weekly self-guided massage peer groups" },
       {
         property: "og:description",
         content: "Safety screening first, then a small peer group of eight — online or in person.",
       },
+
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

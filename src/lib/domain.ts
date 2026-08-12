@@ -111,7 +111,8 @@ export const TECHNIQUES: Technique[] = [
   },
   {
     id: "self_release",
-    name: "Self-release / trigger-point work",
+    name: "Self-release / trigger-point work (ball or hands)",
+
     claim: "Can temporarily ease symptoms for some people.",
     evidence:
       "Any relief is typically short-lived. It is a way to notice what your body responds to, not a treatment. Keep it gentle and time-limited.",
@@ -153,7 +154,82 @@ export const TECHNIQUES: Technique[] = [
       "Do not work the same area more than once every few days.",
     ],
   },
+  {
+    id: "foam_rolling",
+    name: "Foam rolling",
+    claim: "Often eases short-term stiffness and can make warming up feel easier.",
+    evidence:
+      "A broader, lower-pressure cousin of trigger-point work. Effects are mostly short-lived changes in how the area feels, not lasting tissue change. Roll muscle, never joints, bone, or the front of the neck.",
+    dose: "Slow passes over the muscle belly, no more than 3/10 discomfort. 30–60 seconds per area, up to once a day.",
+    contraindications: [
+      { id: "no_skin", label: "The skin over the area is intact, not irritated or infected." },
+      {
+        id: "no_acute",
+        label: "I am not rolling over a recent fracture, surgical site, or an acutely swollen area.",
+      },
+      {
+        id: "muscle_only",
+        label: "I understand this stays on muscle — not over joints, bone, the spine's bony ridge, or the neck.",
+      },
+    ],
+    stopRules: [
+      "Stop on sharp pain, tingling, or numbness — that is nerve, not muscle.",
+      "Stop if soreness lasts more than a day.",
+      "Stop if you need heavier pressure each session for the same effect.",
+    ],
+  },
+  {
+    id: "nerve_gliding",
+    name: "Nerve gliding / neural mobility",
+    claim: "Gentle, low-amplitude movement that some people with nerve-related symptoms find settling.",
+    evidence:
+      "Intended to move a nerve gently through its path, not to stretch it. It is easy to overdo, and it should only be tried after a clinician has looked at neurological symptoms — never as a way to self-manage new weakness or spreading numbness.",
+    dose: "Small, slow, pain-free range. 5–10 repetitions, once or twice a day. Symptoms should not build up across reps.",
+    contraindications: [
+      {
+        id: "assessed",
+        label: "Any numbness, tingling, or weakness I have has already been looked at by a clinician.",
+      },
+      {
+        id: "no_progressive",
+        label: "I do not have weakness or numbness that is spreading or getting worse.",
+      },
+      {
+        id: "gentle",
+        label: "I understand this is gentle gliding, not stretching, and should never provoke symptoms.",
+      },
+    ],
+    stopRules: [
+      "Stop the moment symptoms increase, spread further down the limb, or linger after you finish.",
+      "Stop on any new weakness — and use the referral route.",
+      "Stop if symptoms are worse the next morning.",
+    ],
+  },
+  {
+    id: "cupping",
+    name: "Cupping",
+    claim: "Some people find it relieving in the short term.",
+    evidence:
+      "Evidence for durable pain benefit is limited and studies are generally low quality. It reliably leaves circular marks that can last a week or more. Same precautions as gua sha: avoid with bleeding disorders, anticoagulants, broken or irritated skin, infection, or unexplained symptoms.",
+    dose: "Light suction only, over intact skin, no more than 5 minutes in one spot. Marking is not the goal and is not a sign it worked.",
+    contraindications: [
+      { id: "no_anticoag", label: "I am not taking anticoagulant (blood-thinning) medication." },
+      { id: "no_bleeding", label: "I do not have a bleeding or clotting disorder." },
+      { id: "no_skin", label: "The skin is intact — no cuts, rashes, irritation, or infection." },
+      {
+        id: "no_unexplained",
+        label: "I do not have unexplained symptoms that haven't been looked at.",
+      },
+      { id: "mark_ok", label: "I understand marks are expected and can last a week or more, and I accept that." },
+    ],
+    stopRules: [
+      "Stop on pain beyond mild, dizziness, or lightheadedness.",
+      "Stop if a mark blisters, breaks the skin, or is slow to clear.",
+      "Do not work the same area more than once a week.",
+    ],
+  },
 ];
+
 
 export const FOCUS_STATEMENT =
   "Explore safe ways to relate differently to this area, identify what helps, and build capacity.";

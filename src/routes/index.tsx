@@ -4,18 +4,20 @@ import { FOCUS_STATEMENT, TECHNIQUES } from "@/lib/domain";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kinship — small peer groups for persistent pain" },
+      { title: "MassageNow — weekly self-guided massage peer groups" },
       {
         name: "description",
         content:
-          "Tell us where it hurts, answer a short safety screen, then apply to a peer group of eight — online or in person, with a leader and an onboarder.",
+          "Join a peer group of eight dedicated to weekly self-guided massage. A short safety screen first, then a space to talk, learn, and work on your pain points.",
       },
-      { property: "og:title", content: "Kinship — small peer groups for persistent pain" },
+      { property: "og:title", content: "MassageNow — weekly self-guided massage peer groups" },
       {
         property: "og:description",
         content:
-          "Screening first, then a small group of eight. Techniques are optional, low-dose experiments — never a treatment plan.",
+          "Weekly self-guided massage in small peer groups. Safety screening first; every technique is an optional, low-dose experiment.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -26,16 +28,16 @@ function Home() {
     <div>
       <section className="mx-auto w-full max-w-5xl px-5 pt-16 pb-14 sm:pt-24">
         <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          Peer groups · eight people · one area at a time
+          Peer groups · eight people · weekly practice
         </p>
         <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
-          Where it hurts starts the conversation.
-          <span className="block text-muted-foreground">It doesn't decide the answer.</span>
+          Join peer groups dedicated to weekly self-guided massage.
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          You tell us the area, how long it's been going on, and a few safety questions. If nothing
-          needs a clinician first, we show you the peer groups you can apply to.
+          A space to talk, learn, and overcome pain points. You answer a few safety questions first —
+          if nothing needs a clinician, we show you the groups you can apply to.
         </p>
+
 
         <div className="mt-9 flex flex-wrap items-center gap-3">
           <Link
@@ -53,7 +55,7 @@ function Home() {
         </div>
 
         <p className="mt-8 max-w-xl border-l-2 border-accent pl-4 text-sm text-muted-foreground">
-          Kinship is not a clinic. Nothing here is diagnosis or treatment, and no peer will tell you
+          MassageNow is not a clinic. Nothing here is diagnosis or treatment, and no peer will tell you
           what's wrong with you.
         </p>
       </section>
@@ -63,8 +65,8 @@ function Home() {
           {[
             {
               step: "01",
-              title: "Screen before match",
-              body: "Duration, red flags, recent injury or surgery, numbness or weakness, goals, movement tolerance, and clinical clearance. Red flags stop the flow and send you to a clinician.",
+              title: "Screen before you join",
+              body: "Area, duration, red flags, recent injury or surgery, numbness or weakness, goals, movement tolerance, and clinical clearance. Red flags stop the flow and send you to a clinician.",
             },
             {
               step: "02",
@@ -73,9 +75,10 @@ function Home() {
             },
             {
               step: "03",
-              title: "Experiment carefully",
-              body: "Techniques are optional and locked until you pass their own contraindication check. Everything is low-dose, time-limited, and stopped on a flare.",
+              title: "Practise together, weekly",
+              body: "Groups meet weekly to talk and practise. Every technique is optional and locked until you pass its own contraindication check — low-dose, time-limited, stopped on a flare.",
             },
+
           ].map((item) => (
             <div key={item.step}>
               <p className="font-display text-3xl text-accent">{item.step}</p>
@@ -90,11 +93,12 @@ function Home() {
         <h2 className="text-3xl">What a group actually offers</h2>
         <p className="mt-4 max-w-2xl text-lg">“{FOCUS_STATEMENT}”</p>
         <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-          Not “we treat this area with these four tools”. Peers support practice. They do not
-          diagnose, promise relief, or pressure anyone into a technique.
+          Not “we treat this area with these tools”. Peers support practice. They do not diagnose,
+          promise relief, or pressure anyone into a technique.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
           {TECHNIQUES.map((t) => (
             <article key={t.id} className="rounded-sm border border-border bg-card p-5">
               <h3 className="text-lg">{t.name}</h3>

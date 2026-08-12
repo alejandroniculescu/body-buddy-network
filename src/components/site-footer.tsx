@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="mt-20 border-t border-border/80 bg-secondary/40">
       <div className="mx-auto grid w-full max-w-5xl gap-6 px-5 py-10 text-sm sm:grid-cols-3">
         <div>
-          <p className="font-display text-base">Kinship</p>
+          <p className="font-display text-base">MassageNow</p>
           <p className="mt-2 max-w-xs text-muted-foreground">
             Small peer groups for people living with persistent pain. Not a clinic, not a diagnosis,
             not a treatment.
