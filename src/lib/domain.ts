@@ -111,7 +111,8 @@ export const TECHNIQUES: Technique[] = [
   },
   {
     id: "self_release",
-    name: "Self-release / trigger-point work",
+    name: "Self-release / trigger-point work (ball or hands)",
+
     claim: "Can temporarily ease symptoms for some people.",
     evidence:
       "Any relief is typically short-lived. It is a way to notice what your body responds to, not a treatment. Keep it gentle and time-limited.",
