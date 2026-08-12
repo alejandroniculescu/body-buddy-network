@@ -156,7 +156,7 @@ function MyPlace() {
         ) : (
           <CheckInForm
             userId={user.id}
-            groupId={accepted[0].group_id}
+            groupId={accepted[0]!.group_id}
             onSaved={() => queryClient.invalidateQueries({ queryKey: ["my-checkins", user.id] })}
           />
         )}
@@ -192,7 +192,7 @@ function CheckInForm({
   groupId: string;
   onSaved: () => void;
 }) {
-  const [technique, setTechnique] = useState(TECHNIQUES[0].id);
+  const [technique, setTechnique] = useState(TECHNIQUES[0]!.id);
   const [dose, setDose] = useState("");
   const [feltAfter, setFeltAfter] = useState("");
   const [notes, setNotes] = useState("");
