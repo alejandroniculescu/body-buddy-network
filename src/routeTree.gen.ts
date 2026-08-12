@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as FacilitateRouteImport } from './routes/facilitate'
+import { Route as SafetyRouteImport } from './routes/safety'
+import { Route as GroupsIndexRouteImport } from './routes/groups.index'
+import { Route as GroupsGroupIdRouteImport } from './routes/groups.$groupId'
+import { Route as IntakeIndexRouteImport } from './routes/intake.index'
+import { Route as IntakeResultRouteImport } from './routes/intake.result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitateRoute = FacilitateRouteImport.update({
+  id: '/facilitate',
+  path: '/facilitate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsIndexRoute = GroupsIndexRouteImport.update({
+  id: '/groups/',
+  path: '/groups/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsGroupIdRoute = GroupsGroupIdRouteImport.update({
+  id: '/groups/$groupId',
+  path: '/groups/$groupId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntakeIndexRoute = IntakeIndexRouteImport.update({
+  id: '/intake/',
+  path: '/intake/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntakeResultRoute = IntakeResultRouteImport.update({
+  id: '/intake/result',
+  path: '/intake/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/auth': typeof AuthRoute
+  '/facilitate': typeof FacilitateRoute
+  '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/intake/result': typeof IntakeResultRoute
+  '/groups/': typeof GroupsIndexRoute
+  '/intake/': typeof IntakeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/auth': typeof AuthRoute
+  '/facilitate': typeof FacilitateRoute
+  '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/intake/result': typeof IntakeResultRoute
+  '/groups': typeof GroupsIndexRoute
+  '/intake': typeof IntakeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/auth': typeof AuthRoute
+  '/facilitate': typeof FacilitateRoute
+  '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/intake/result': typeof IntakeResultRoute
+  '/groups/': typeof GroupsIndexRoute
+  '/intake/': typeof IntakeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/applications'
+    | '/auth'
+    | '/facilitate'
+    | '/safety'
+    | '/groups/$groupId'
+    | '/intake/result'
+    | '/groups/'
+    | '/intake/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/applications'
+    | '/auth'
+    | '/facilitate'
+    | '/safety'
+    | '/groups/$groupId'
+    | '/intake/result'
+    | '/groups'
+    | '/intake'
+  id:
+    | '__root__'
+    | '/'
+    | '/applications'
+    | '/auth'
+    | '/facilitate'
+    | '/safety'
+    | '/groups/$groupId'
+    | '/intake/result'
+    | '/groups/'
+    | '/intake/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  AuthRoute: typeof AuthRoute
+  FacilitateRoute: typeof FacilitateRoute
+  SafetyRoute: typeof SafetyRoute
+  GroupsGroupIdRoute: typeof GroupsGroupIdRoute
+  IntakeResultRoute: typeof IntakeResultRoute
+  GroupsIndexRoute: typeof GroupsIndexRoute
+  IntakeIndexRoute: typeof IntakeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facilitate': {
+      id: '/facilitate'
+      path: '/facilitate'
+      fullPath: '/facilitate'
+      preLoaderRoute: typeof FacilitateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups/': {
+      id: '/groups/'
+      path: '/groups'
+      fullPath: '/groups/'
+      preLoaderRoute: typeof GroupsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups/$groupId': {
+      id: '/groups/$groupId'
+      path: '/groups/$groupId'
+      fullPath: '/groups/$groupId'
+      preLoaderRoute: typeof GroupsGroupIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intake/': {
+      id: '/intake/'
+      path: '/intake'
+      fullPath: '/intake/'
+      preLoaderRoute: typeof IntakeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intake/result': {
+      id: '/intake/result'
+      path: '/intake/result'
+      fullPath: '/intake/result'
+      preLoaderRoute: typeof IntakeResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  AuthRoute: AuthRoute,
+  FacilitateRoute: FacilitateRoute,
+  SafetyRoute: SafetyRoute,
+  GroupsGroupIdRoute: GroupsGroupIdRoute,
+  IntakeResultRoute: IntakeResultRoute,
+  GroupsIndexRoute: GroupsIndexRoute,
+  IntakeIndexRoute: IntakeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
