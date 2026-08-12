@@ -4,13 +4,13 @@ import { PEER_CONDUCT, REFERRAL_ROUTE, RED_FLAGS, TECHNIQUES, FOCUS_STATEMENT } 
 export const Route = createFileRoute("/safety")({
   head: () => ({
     meta: [
-      { title: "Safety protocol & referral route — Kinship" },
+      { title: "Safety protocol & referral route — MassageNow" },
       {
         name: "description",
         content:
-          "The clinician-designed safety protocol behind Kinship groups: red flags, stop rules, technique contraindications, and when to seek care.",
+          "The clinician-designed safety protocol behind MassageNow groups: red flags, stop rules, technique contraindications, and when to seek care.",
       },
-      { property: "og:title", content: "Safety protocol & referral route — Kinship" },
+      { property: "og:title", content: "Safety protocol & referral route — MassageNow" },
       {
         property: "og:description",
         content: "Red flags, stop rules, contraindications, and the referral route peers must follow.",
@@ -28,7 +28,7 @@ function SafetyPage() {
       </p>
       <h1 className="mt-4 text-4xl">Safety protocol</h1>
       <p className="mt-4 text-lg text-muted-foreground">
-        Kinship groups are peer spaces. The offer is: “{FOCUS_STATEMENT}” Nothing here is
+        MassageNow groups are peer spaces. The offer is: “{FOCUS_STATEMENT}” Nothing here is
         assessment, diagnosis, or treatment.
       </p>
 

@@ -18,13 +18,13 @@ import { Progress } from "@/components/ui/progress";
 export const Route = createFileRoute("/intake/")({
   head: () => ({
     meta: [
-      { title: "Intake & safety screening — Kinship" },
+      { title: "Intake & safety screening — MassageNow" },
       {
         name: "description",
         content:
           "A short intake: area, duration, red-flag screening, injury history, neurological symptoms, goals, movement tolerance, and clinical clearance.",
       },
-      { property: "og:title", content: "Intake & safety screening — Kinship" },
+      { property: "og:title", content: "Intake & safety screening — MassageNow" },
       {
         property: "og:description",
         content: "Eight short steps. Screening decides what happens next, not the pain location.",

@@ -4,13 +4,13 @@ import { FOCUS_STATEMENT, TECHNIQUES } from "@/lib/domain";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kinship — small peer groups for persistent pain" },
+      { title: "MassageNow — small peer groups for persistent pain" },
       {
         name: "description",
         content:
           "Tell us where it hurts, answer a short safety screen, then apply to a peer group of eight — online or in person, with a leader and an onboarder.",
       },
-      { property: "og:title", content: "Kinship — small peer groups for persistent pain" },
+      { property: "og:title", content: "MassageNow — small peer groups for persistent pain" },
       {
         property: "og:description",
         content:
@@ -53,7 +53,7 @@ function Home() {
         </div>
 
         <p className="mt-8 max-w-xl border-l-2 border-accent pl-4 text-sm text-muted-foreground">
-          Kinship is not a clinic. Nothing here is diagnosis or treatment, and no peer will tell you
+          MassageNow is not a clinic. Nothing here is diagnosis or treatment, and no peer will tell you
           what's wrong with you.
         </p>
       </section>

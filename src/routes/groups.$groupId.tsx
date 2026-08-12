@@ -14,13 +14,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 export const Route = createFileRoute("/groups/$groupId")({
   head: () => ({
     meta: [
-      { title: "Group details & application — Kinship" },
+      { title: "Group details & application — MassageNow" },
       {
         name: "description",
         content:
           "How this peer group meets, who facilitates it, how many places are left, and the optional low-dose experiments members can opt into.",
       },
-      { property: "og:title", content: "Group details & application — Kinship" },
+      { property: "og:title", content: "Group details & application — MassageNow" },
       {
         property: "og:description",
         content: "Places left, meeting mode, facilitators, and the optional technique library.",

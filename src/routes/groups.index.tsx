@@ -7,13 +7,13 @@ import { FOCUS_STATEMENT, REGIONS, modeLabel, regionLabel, toleranceLabel } from
 export const Route = createFileRoute("/groups/")({
   head: () => ({
     meta: [
-      { title: "Peer groups now forming — Kinship" },
+      { title: "Peer groups now forming — MassageNow" },
       {
         name: "description",
         content:
           "Browse peer pain groups by area, meeting mode, and location. Eight people per group, a leader and an onboarder, and a new circle opens when one fills.",
       },
-      { property: "og:title", content: "Peer groups now forming — Kinship" },
+      { property: "og:title", content: "Peer groups now forming — MassageNow" },
       {
         property: "og:description",
         content: "Eight people per group, online or in person, with a leader and an onboarder.",

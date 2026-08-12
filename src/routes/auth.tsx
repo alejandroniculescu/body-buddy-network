@@ -15,13 +15,13 @@ export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Sign in — Kinship peer groups" },
+      { title: "Sign in — MassageNow peer groups" },
       {
         name: "description",
         content:
-          "Create a Kinship account as a member, a group leader, or an onboarder, or sign back in to your intake and group.",
+          "Create a MassageNow account as a member, a group leader, or an onboarder, or sign back in to your intake and group.",
       },
-      { property: "og:title", content: "Sign in — Kinship peer groups" },
+      { property: "og:title", content: "Sign in — MassageNow peer groups" },
       {
         property: "og:description",
         content: "Sign in to continue your intake or manage the group you facilitate.",

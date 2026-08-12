@@ -13,7 +13,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-5xl items-center gap-4 px-5 py-3">
         <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-lg tracking-tight">Kinship</span>
+          <span className="font-display text-lg tracking-tight">MassageNow</span>
           <span className="hidden text-xs uppercase tracking-[0.18em] text-muted-foreground sm:inline">
             peer groups
           </span>

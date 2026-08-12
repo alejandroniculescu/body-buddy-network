@@ -14,13 +14,13 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/applications")({
   head: () => ({
     meta: [
-      { title: "My place — applications & check-ins — Kinship" },
+      { title: "My place — applications & check-ins — MassageNow" },
       {
         name: "description",
         content:
           "Track your group applications, see the circles you've joined, and log short check-ins about what you tried and how it felt.",
       },
-      { property: "og:title", content: "My place — Kinship" },
+      { property: "og:title", content: "My place — MassageNow" },
       {
         property: "og:description",
         content: "Applications, groups you've joined, and your check-in history.",

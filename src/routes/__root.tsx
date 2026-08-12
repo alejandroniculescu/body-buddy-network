@@ -80,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kinship — peer groups for persistent pain" },
+      { title: "MassageNow — peer groups for persistent pain" },
       {
         name: "description",
         content:
           "Screened intake, clinician-designed safety protocol, and small peer groups of eight for people living with persistent pain.",
       },
-      { property: "og:title", content: "Kinship — peer groups for persistent pain" },
+      { property: "og:title", content: "MassageNow — peer groups for persistent pain" },
       {
         property: "og:description",
         content: "Safety screening first, then a small peer group of eight — online or in person.",
