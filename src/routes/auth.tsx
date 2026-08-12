@@ -64,6 +64,50 @@ function AuthPage() {
 
   const nextPath = search.next && search.next.startsWith("/") ? search.next : "/intake";
 
+  useEffect(() => {
+    const raw = sessionStorage.getItem("oauth_pending");
+    if (!raw) return;
+    const pending = JSON.parse(raw);
+    sessionStorage.removeItem("oauth_pending");
+
+    supabase.auth.getUser().then(({ data }) => {
+      if (!data.user) return;
+      if (pending.role && pending.role !== "member") {
+        claimFacilitatorRole({ data: { role: pending.role } }).finally(() =>
+          navigate({ to: pending.nextPath }),
+        );
+      } else {
+        navigate({ to: pending.nextPath });
+      }
+    });
+  }, []);
+
+  async function signInWithOAuth(provider: "google" | "apple") {
+    sessionStorage.setItem(
+      "oauth_pending",
+      JSON.stringify({ nextPath, role: mode === "signup" ? role : "member" }),
+    );
+    const result = await lovable.auth.signInWithOAuth(provider, {
+      redirect_uri: `${window.location.origin}/auth`,
+    });
+    if (result.error) {
+      sessionStorage.removeItem("oauth_pending");
+      toast.error(result.error instanceof Error ? result.error.message : "Sign-in failed.");
+      return;
+    }
+    if (result.redirected) {
+      // Browser is navigating away to the provider; the return path is handled by useEffect.
+      return;
+    }
+    // Preview / web-message path: session is already set.
+    const pending = JSON.parse(sessionStorage.getItem("oauth_pending") || "{}");
+    sessionStorage.removeItem("oauth_pending");
+    if (pending.role && pending.role !== "member") {
+      await claimFacilitatorRole({ data: { role: pending.role } });
+    }
+    navigate({ to: pending.nextPath || nextPath });
+  }
+
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     setBusy(true);
