@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as GroupsIndexRouteImport } from './routes/groups.index'
+import { Route as GroupsGroupIdRouteImport } from './routes/groups.$groupId'
 import { Route as IntakeIndexRouteImport } from './routes/intake.index'
 import { Route as IntakeResultRouteImport } from './routes/intake.result'
 
@@ -36,6 +37,11 @@ const GroupsIndexRoute = GroupsIndexRouteImport.update({
   path: '/groups/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GroupsGroupIdRoute = GroupsGroupIdRouteImport.update({
+  id: '/groups/$groupId',
+  path: '/groups/$groupId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IntakeIndexRoute = IntakeIndexRouteImport.update({
   id: '/intake/',
   path: '/intake/',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
   '/groups/': typeof GroupsIndexRoute
   '/intake/': typeof IntakeIndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
   '/groups': typeof GroupsIndexRoute
   '/intake': typeof IntakeIndexRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
   '/groups/': typeof GroupsIndexRoute
   '/intake/': typeof IntakeIndexRoute
@@ -75,14 +84,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/auth' | '/safety' | '/intake/result' | '/groups/' | '/intake/'
+    | '/'
+    | '/auth'
+    | '/safety'
+    | '/groups/$groupId'
+    | '/intake/result'
+    | '/groups/'
+    | '/intake/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/safety' | '/intake/result' | '/groups' | '/intake'
+  to:
+    | '/'
+    | '/auth'
+    | '/safety'
+    | '/groups/$groupId'
+    | '/intake/result'
+    | '/groups'
+    | '/intake'
   id:
     | '__root__'
     | '/'
     | '/auth'
     | '/safety'
+    | '/groups/$groupId'
     | '/intake/result'
     | '/groups/'
     | '/intake/'
@@ -92,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   SafetyRoute: typeof SafetyRoute
+  GroupsGroupIdRoute: typeof GroupsGroupIdRoute
   IntakeResultRoute: typeof IntakeResultRoute
   GroupsIndexRoute: typeof GroupsIndexRoute
   IntakeIndexRoute: typeof IntakeIndexRoute
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/groups/$groupId': {
+      id: '/groups/$groupId'
+      path: '/groups/$groupId'
+      fullPath: '/groups/$groupId'
+      preLoaderRoute: typeof GroupsGroupIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/intake/': {
       id: '/intake/'
       path: '/intake'
@@ -148,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   SafetyRoute: SafetyRoute,
+  GroupsGroupIdRoute: GroupsGroupIdRoute,
   IntakeResultRoute: IntakeResultRoute,
   GroupsIndexRoute: GroupsIndexRoute,
   IntakeIndexRoute: IntakeIndexRoute,
