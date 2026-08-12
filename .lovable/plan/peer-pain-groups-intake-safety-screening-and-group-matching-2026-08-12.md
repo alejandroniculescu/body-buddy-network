@@ -63,8 +63,9 @@ Say the word if any of these are wrong:
 ## Technical notes
 
 - Lovable Cloud for accounts, intake responses, groups, memberships, applications, and check-ins.
+- **Social auth**: add Google and Apple sign-in to the existing email/password auth page using Lovable Cloud managed OAuth. Configure both providers the same turn they are introduced so sign-in does not fail with an unsupported-provider error. OAuth redirect returns to a public route, then navigates to the intended destination after the session is confirmed.
 - Roles in a separate `user_roles` table (`member`, `onboarder`, `leader`, `admin`) checked through a security-definer function — never on a profile row.
 - Tables: `profiles`, `user_roles`, `intakes`, `groups` (mode, location/platform, cadence, capacity 8, status), `group_members`, `group_applications`, `technique_optins`, `check_ins`. RLS on everything, with explicit grants; members read only their own group.
 - Capacity and the "spawn the next group at 8" rule enforced server-side in a server function, not in the UI.
-- Routes: `/`, `/intake`, `/intake/result`, `/groups`, `/groups/$groupId`, `/applications`, `/group/$groupId/techniques`, each with its own head metadata.
+- Routes: `/`, `/intake`, `/intake/result`, `/groups`, `/groups/$groupId`, `/applications`, `/group/$groupId/techniques`, `/auth`, each with its own head metadata.
 - Seed content: a few sample groups across regions and both meeting modes so the browse screen is populated from the first load.
