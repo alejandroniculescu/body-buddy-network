@@ -65,8 +65,8 @@ function Home() {
           {[
             {
               step: "01",
-              title: "Screen before match",
-              body: "Duration, red flags, recent injury or surgery, numbness or weakness, goals, movement tolerance, and clinical clearance. Red flags stop the flow and send you to a clinician.",
+              title: "Screen before you join",
+              body: "Area, duration, red flags, recent injury or surgery, numbness or weakness, goals, movement tolerance, and clinical clearance. Red flags stop the flow and send you to a clinician.",
             },
             {
               step: "02",
@@ -75,9 +75,10 @@ function Home() {
             },
             {
               step: "03",
-              title: "Experiment carefully",
-              body: "Techniques are optional and locked until you pass their own contraindication check. Everything is low-dose, time-limited, and stopped on a flare.",
+              title: "Practise together, weekly",
+              body: "Groups meet weekly to talk and practise. Every technique is optional and locked until you pass its own contraindication check — low-dose, time-limited, stopped on a flare.",
             },
+
           ].map((item) => (
             <div key={item.step}>
               <p className="font-display text-3xl text-accent">{item.step}</p>
