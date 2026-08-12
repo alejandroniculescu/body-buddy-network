@@ -4,18 +4,20 @@ import { FOCUS_STATEMENT, TECHNIQUES } from "@/lib/domain";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MassageNow — small peer groups for persistent pain" },
+      { title: "MassageNow — weekly self-guided massage peer groups" },
       {
         name: "description",
         content:
-          "Tell us where it hurts, answer a short safety screen, then apply to a peer group of eight — online or in person, with a leader and an onboarder.",
+          "Join a peer group of eight dedicated to weekly self-guided massage. A short safety screen first, then a space to talk, learn, and work on your pain points.",
       },
-      { property: "og:title", content: "MassageNow — small peer groups for persistent pain" },
+      { property: "og:title", content: "MassageNow — weekly self-guided massage peer groups" },
       {
         property: "og:description",
         content:
-          "Screening first, then a small group of eight. Techniques are optional, low-dose experiments — never a treatment plan.",
+          "Weekly self-guided massage in small peer groups. Safety screening first; every technique is an optional, low-dose experiment.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -26,16 +28,16 @@ function Home() {
     <div>
       <section className="mx-auto w-full max-w-5xl px-5 pt-16 pb-14 sm:pt-24">
         <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          Peer groups · eight people · one area at a time
+          Peer groups · eight people · weekly practice
         </p>
         <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
-          Where it hurts starts the conversation.
-          <span className="block text-muted-foreground">It doesn't decide the answer.</span>
+          Join peer groups dedicated to weekly self-guided massage.
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          You tell us the area, how long it's been going on, and a few safety questions. If nothing
-          needs a clinician first, we show you the peer groups you can apply to.
+          A space to talk, learn, and overcome pain points. You answer a few safety questions first —
+          if nothing needs a clinician, we show you the groups you can apply to.
         </p>
+
 
         <div className="mt-9 flex flex-wrap items-center gap-3">
           <Link
