@@ -31,24 +31,18 @@ export function useAuth() {
 
   const userId = session?.user?.id;
 
-  useEffect(() => {
+  const loadRoles = useCallback(async () => {
     if (!userId) {
       setRoles([]);
       return;
     }
-    let active = true;
-    supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId)
-      .then(({ data }) => {
-        if (!active) return;
-        setRoles((data ?? []).map((r) => r.role as AppRole));
-      });
-    return () => {
-      active = false;
-    };
+    const { data } = await supabase.from("user_roles").select("role").eq("user_id", userId);
+    setRoles((data ?? []).map((r) => r.role as AppRole));
   }, [userId]);
+
+  useEffect(() => {
+    void loadRoles();
+  }, [loadRoles]);
 
   const user: User | null = session?.user ?? null;
   return {
@@ -57,6 +51,8 @@ export function useAuth() {
     userId,
     loading,
     roles,
+    refreshRoles: loadRoles,
     isFacilitator: roles.includes("leader") || roles.includes("onboarder") || roles.includes("admin"),
   };
+
 }
