@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as IntakeIndexRouteImport } from './routes/intake.index'
+import { Route as IntakeResultRouteImport } from './routes/intake.result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,17 +35,24 @@ const IntakeIndexRoute = IntakeIndexRouteImport.update({
   path: '/intake/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntakeResultRoute = IntakeResultRouteImport.update({
+  id: '/intake/result',
+  path: '/intake/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/intake/result': typeof IntakeResultRoute
   '/intake/': typeof IntakeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/intake/result': typeof IntakeResultRoute
   '/intake': typeof IntakeIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/safety': typeof SafetyRoute
+  '/intake/result': typeof IntakeResultRoute
   '/intake/': typeof IntakeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/safety' | '/intake/'
+  fullPaths: '/' | '/auth' | '/safety' | '/intake/result' | '/intake/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/safety' | '/intake'
-  id: '__root__' | '/' | '/auth' | '/safety' | '/intake/'
+  to: '/' | '/auth' | '/safety' | '/intake/result' | '/intake'
+  id: '__root__' | '/' | '/auth' | '/safety' | '/intake/result' | '/intake/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   SafetyRoute: typeof SafetyRoute
+  IntakeResultRoute: typeof IntakeResultRoute
   IntakeIndexRoute: typeof IntakeIndexRoute
 }
 
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IntakeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/intake/result': {
+      id: '/intake/result'
+      path: '/intake/result'
+      fullPath: '/intake/result'
+      preLoaderRoute: typeof IntakeResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   SafetyRoute: SafetyRoute,
+  IntakeResultRoute: IntakeResultRoute,
   IntakeIndexRoute: IntakeIndexRoute,
 }
 export const routeTree = rootRouteImport
