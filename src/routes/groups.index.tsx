@@ -28,17 +28,19 @@ export const Route = createFileRoute("/groups/")({
 function GroupsPage() {
   const [region, setRegion] = useState<string>("all");
   const [mode, setMode] = useState<string>("all");
+  const { user } = useAuth();
+  const signedIn = !!user;
 
   const { data, isLoading } = useQuery({
-    queryKey: ["groups"],
+    queryKey: ["groups", signedIn],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("groups")
-        .select("*")
+        .select(signedIn ? "*" : PUBLIC_GROUP_COLUMNS)
         .order("status", { ascending: true })
         .order("created_at", { ascending: true });
       if (error) throw error;
-      return data;
+      return (data ?? []) as unknown as BrowsableGroup[];
     },
   });
 
