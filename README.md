@@ -1,32 +1,12 @@
-# Body Compass
+# Body Compass // MassageNoW
 
-Hi Okay so you say where you experience pain, then it connects you to a group - and the group will do gua sha, self release, trigger point, and small resistance bands initially?
+A peer to peer support network for practicing new massage and stretch modalities for recovery with reports that can be sent to fisiotherapists as well as psychotherapists.
 
-That could be an onboarding flow, but pain location alone should start a match—not determine the intervention. Add duration, red-flag screening, recent injury/surgery, symptoms such as numbness or weakness, goals, movement tolerance, and whether the person has clinical clearance.
+People are matched to other groups - online or in person that work with similar pains or diagnosis. 
 
-For an initial group, make techniques optional, low-dose experiments:
+A marketplace as well for sponsors and other group mates to share what products they use.
 
-• Small resistance-band work: potentially useful for gradual strengthening when adapted to the individual and guided by a qualified movement/physio professional.
-
-• Self-release / trigger-point work: can temporarily ease symptoms for some people, but should be gentle, time-limited, and stopped if it causes symptom flare, tingling, dizziness, or worsening pain.
-
-• Gua sha: some people find it soothing, but evidence for durable pain benefit is limited; it commonly causes bruising and should be avoided with bleeding disorders, anticoagulants, broken/irritated skin, infection, or unexplained symptoms.
-
-The group’s initial offer could be: “Explore safe ways to relate differently to this area, identify what helps, and build capacity,” rather than “we treat scapular pain with these four tools.” Have a clinician-designed safety protocol and referral route; peers can support practice, but should not diagnose, promise relief, or pressure anyone to use a technique.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/72695069-607a-479b-8edc-a26e913612ab).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Built with npm, mvp done with loveable; don't worry I know how to code when its time to make the actual product.
 
 <img width="1380" height="988" alt="image" src="https://github.com/user-attachments/assets/4fbe5d6f-bc43-49e7-a451-7040ceedb77a" />
 
