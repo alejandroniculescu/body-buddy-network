@@ -71,11 +71,15 @@ function GroupDetail() {
   const [busy, setBusy] = useState(false);
 
   const { data: group, isLoading } = useQuery({
-    queryKey: ["group", groupId],
+    queryKey: ["group", groupId, !!user],
     queryFn: async () => {
-      const { data, error } = await supabase.from("groups").select("*").eq("id", groupId).maybeSingle();
+      const { data, error } = await supabase
+        .from("groups")
+        .select(user ? "*" : PUBLIC_GROUP_COLUMNS)
+        .eq("id", groupId)
+        .maybeSingle();
       if (error) throw error;
-      return data;
+      return (data ?? null) as unknown as BrowsableGroup | null;
     },
   });
 
