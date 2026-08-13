@@ -178,8 +178,8 @@ function GroupDetail() {
           label="Places"
           value={full ? "Full — next circle open" : `${placesLeft} of ${group.capacity} left`}
         />
-        <Meta label="Leader" value={group.leader_name} />
-        <Meta label="Onboarder" value={group.onboarder_name} />
+        <Meta label="Leader" value={facilitatorName(group.leader_name)} />
+        <Meta label="Onboarder" value={facilitatorName(group.onboarder_name)} />
         <Meta label="Circle" value={`#${group.cohort}`} />
       </dl>
 
