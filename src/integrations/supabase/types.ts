@@ -55,6 +55,57 @@ export type Database = {
           },
         ]
       }
+      gear_items: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          name: string
+          price_note: string | null
+          region: string | null
+          sort_order: number
+          sponsor_code: string | null
+          sponsor_name: string | null
+          sponsor_offer: string | null
+          technique: string | null
+          url: string | null
+          why_it_helps: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          id?: string
+          name: string
+          price_note?: string | null
+          region?: string | null
+          sort_order?: number
+          sponsor_code?: string | null
+          sponsor_name?: string | null
+          sponsor_offer?: string | null
+          technique?: string | null
+          url?: string | null
+          why_it_helps?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          name?: string
+          price_note?: string | null
+          region?: string | null
+          sort_order?: number
+          sponsor_code?: string | null
+          sponsor_name?: string | null
+          sponsor_offer?: string | null
+          technique?: string | null
+          url?: string | null
+          why_it_helps?: string | null
+        }
+        Relationships: []
+      }
       group_applications: {
         Row: {
           created_at: string
@@ -270,6 +321,45 @@ export type Database = {
         }
         Relationships: []
       }
+      pain_reports: {
+        Row: {
+          created_at: string
+          flare: boolean
+          function_score: number | null
+          id: string
+          notes: string | null
+          pain_score: number
+          recorded_on: string
+          region: string
+          stiffness_score: number | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          flare?: boolean
+          function_score?: number | null
+          id?: string
+          notes?: string | null
+          pain_score: number
+          recorded_on?: string
+          region: string
+          stiffness_score?: number | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          flare?: boolean
+          function_score?: number | null
+          id?: string
+          notes?: string | null
+          pain_score?: number
+          recorded_on?: string
+          region?: string
+          stiffness_score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           city: string | null
@@ -338,6 +428,48 @@ export type Database = {
           created_at?: string
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      wearable_readings: {
+        Row: {
+          active_minutes: number | null
+          created_at: string
+          hrv_ms: number | null
+          id: string
+          recorded_on: string
+          resting_hr: number | null
+          sleep_hours: number | null
+          source: string
+          steps: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          active_minutes?: number | null
+          created_at?: string
+          hrv_ms?: number | null
+          id?: string
+          recorded_on?: string
+          resting_hr?: number | null
+          sleep_hours?: number | null
+          source?: string
+          steps?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          active_minutes?: number | null
+          created_at?: string
+          hrv_ms?: number | null
+          id?: string
+          recorded_on?: string
+          resting_hr?: number | null
+          sleep_hours?: number | null
+          source?: string
+          steps?: number | null
+          updated_at?: string
           user_id?: string
         }
         Relationships: []

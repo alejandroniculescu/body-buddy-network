@@ -52,6 +52,12 @@ function Home() {
           >
             Look at the groups first
           </Link>
+          <Link
+            to="/gear"
+            className="inline-flex items-center rounded-sm border border-input px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+          >
+            See our gear
+          </Link>
         </div>
 
         <p className="mt-8 max-w-xl border-l-2 border-accent pl-4 text-sm text-muted-foreground">

@@ -23,11 +23,21 @@ export function SiteHeader() {
           <Link to="/groups" className={linkClass} activeProps={{ className: `${linkClass} ${activeClass}` }}>
             Groups
           </Link>
+          <Link to="/gear" className={linkClass} activeProps={{ className: `${linkClass} ${activeClass}` }}>
+            Gear
+          </Link>
           <Link to="/safety" className={linkClass} activeProps={{ className: `${linkClass} ${activeClass}` }}>
             Safety
           </Link>
           {user ? (
             <>
+              <Link
+                to="/performance"
+                className={linkClass}
+                activeProps={{ className: `${linkClass} ${activeClass}` }}
+              >
+                Performance
+              </Link>
               <Link
                 to="/applications"
                 className={linkClass}
