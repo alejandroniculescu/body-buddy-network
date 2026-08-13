@@ -158,6 +158,8 @@ function GroupDetail() {
         </div>
       </section>
 
+      <GearSection region={group.region} />
+
       <section className="mt-12">
         <h2 className="text-2xl">How peers behave here</h2>
         <ul className="mt-4 space-y-2 text-sm">
