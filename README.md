@@ -8,6 +8,14 @@ A marketplace as well for sponsors and other group mates to share what products 
 
 Built with npm, mvp done with loveable; don't worry I know how to code when its time to make the actual product.
 
+TODO:
+Hide all the modalities
+Hide all the product referrals, nest them into groups using tools
+Add about me for group leaders, as to why they are to be trusted.
+Add a paywall/ take cc info?
+Explain the modalities, and show less of them
+Add an NDA talk to legal 
+
 <img width="1380" height="988" alt="image" src="https://github.com/user-attachments/assets/4fbe5d6f-bc43-49e7-a451-7040ceedb77a" />
 
 
