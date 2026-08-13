@@ -11,6 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { GearGrid, type GearItem } from "@/components/gear-list";
+import {
+  PUBLIC_GROUP_COLUMNS,
+  facilitatorName,
+  type BrowsableGroup,
+} from "@/lib/group-columns";
 
 function GearSection({ region }: { region: string }) {
   const { data: items } = useQuery({
@@ -71,11 +76,15 @@ function GroupDetail() {
   const [busy, setBusy] = useState(false);
 
   const { data: group, isLoading } = useQuery({
-    queryKey: ["group", groupId],
+    queryKey: ["group", groupId, !!user],
     queryFn: async () => {
-      const { data, error } = await supabase.from("groups").select("*").eq("id", groupId).maybeSingle();
+      const { data, error } = await supabase
+        .from("groups")
+        .select(user ? "*" : PUBLIC_GROUP_COLUMNS)
+        .eq("id", groupId)
+        .maybeSingle();
       if (error) throw error;
-      return data;
+      return (data ?? null) as unknown as BrowsableGroup | null;
     },
   });
 
@@ -169,8 +178,8 @@ function GroupDetail() {
           label="Places"
           value={full ? "Full — next circle open" : `${placesLeft} of ${group.capacity} left`}
         />
-        <Meta label="Leader" value={group.leader_name} />
-        <Meta label="Onboarder" value={group.onboarder_name} />
+        <Meta label="Leader" value={facilitatorName(group.leader_name)} />
+        <Meta label="Onboarder" value={facilitatorName(group.onboarder_name)} />
         <Meta label="Circle" value={`#${group.cohort}`} />
       </dl>
 

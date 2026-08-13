@@ -3,6 +3,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { FOCUS_STATEMENT, REGIONS, modeLabel, regionLabel, toleranceLabel } from "@/lib/domain";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  PUBLIC_GROUP_COLUMNS,
+  facilitatorName,
+  type BrowsableGroup,
+} from "@/lib/group-columns";
 
 export const Route = createFileRoute("/groups/")({
   head: () => ({
@@ -28,17 +34,19 @@ export const Route = createFileRoute("/groups/")({
 function GroupsPage() {
   const [region, setRegion] = useState<string>("all");
   const [mode, setMode] = useState<string>("all");
+  const { user } = useAuth();
+  const signedIn = !!user;
 
   const { data, isLoading } = useQuery({
-    queryKey: ["groups"],
+    queryKey: ["groups", signedIn],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("groups")
-        .select("*")
+        .select(signedIn ? "*" : PUBLIC_GROUP_COLUMNS)
         .order("status", { ascending: true })
         .order("created_at", { ascending: true });
       if (error) throw error;
-      return data;
+      return (data ?? []) as unknown as BrowsableGroup[];
     },
   });
 
@@ -108,8 +116,8 @@ function GroupsPage() {
                   <Meta label="Tolerance" value={toleranceLabel(g.tolerance_band)} />
                   <Meta label="Meets" value={`${modeLabel(g.mode)} · ${g.location}`} />
                   <Meta label="Cadence" value={g.cadence} />
-                  <Meta label="Leader" value={g.leader_name} />
-                  <Meta label="Onboarder" value={g.onboarder_name} />
+                  <Meta label="Leader" value={facilitatorName(g.leader_name)} />
+                  <Meta label="Onboarder" value={facilitatorName(g.onboarder_name)} />
                 </dl>
                 <div className="mt-6 flex items-center gap-4 pt-1">
                   <Link

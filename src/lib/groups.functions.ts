@@ -86,10 +86,12 @@ export const decideApplication = createServerFn({ method: "POST" })
     if (application.status !== "pending")
       return { ok: false as const, error: "That application was already decided." };
 
-    const { data: runs } = await supabase.rpc("runs_group", {
-      _group_id: application.group_id,
-      _user_id: userId,
-    });
+    const { data: runsRow } = await supabase
+      .from("groups")
+      .select("leader_id, onboarder_id")
+      .eq("id", application.group_id)
+      .maybeSingle();
+    const runs = !!runsRow && (runsRow.leader_id === userId || runsRow.onboarder_id === userId);
     if (!runs) return { ok: false as const, error: "Only this group's leader or onboarder can decide." };
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -193,15 +195,12 @@ export const createGroup = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
 
-    const { data: isLeader } = await supabase.rpc("has_role", {
-      _user_id: userId,
-      _role: "leader",
-    });
-    const { data: isOnboarder } = await supabase.rpc("has_role", {
-      _user_id: userId,
-      _role: "onboarder",
-    });
-    if (!isLeader && !isOnboarder) {
+    const { data: roleRows } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId);
+    const roles = (roleRows ?? []).map((r) => r.role);
+    if (!roles.includes("leader") && !roles.includes("onboarder")) {
       return { ok: false as const, error: "Only group leaders and onboarders can open a group." };
     }
 
