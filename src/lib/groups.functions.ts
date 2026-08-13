@@ -86,10 +86,12 @@ export const decideApplication = createServerFn({ method: "POST" })
     if (application.status !== "pending")
       return { ok: false as const, error: "That application was already decided." };
 
-    const { data: runs } = await supabase.rpc("runs_group", {
-      _group_id: application.group_id,
-      _user_id: userId,
-    });
+    const { data: runsRow } = await supabase
+      .from("groups")
+      .select("leader_id, onboarder_id")
+      .eq("id", application.group_id)
+      .maybeSingle();
+    const runs = !!runsRow && (runsRow.leader_id === userId || runsRow.onboarder_id === userId);
     if (!runs) return { ok: false as const, error: "Only this group's leader or onboarder can decide." };
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
