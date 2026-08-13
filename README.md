@@ -28,6 +28,9 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
+<img width="1380" height="988" alt="image" src="https://github.com/user-attachments/assets/4fbe5d6f-bc43-49e7-a451-7040ceedb77a" />
+
+
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
