@@ -14,6 +14,7 @@ import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as FacilitateRouteImport } from './routes/facilitate'
 import { Route as GearRouteImport } from './routes/gear'
+import { Route as PerformanceRouteImport } from './routes/performance'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as GroupsIndexRouteImport } from './routes/groups.index'
 import { Route as GroupsGroupIdRouteImport } from './routes/groups.$groupId'
@@ -43,6 +44,11 @@ const FacilitateRoute = FacilitateRouteImport.update({
 const GearRoute = GearRouteImport.update({
   id: '/gear',
   path: '/gear',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerformanceRoute = PerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafetyRoute = SafetyRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/facilitate': typeof FacilitateRoute
   '/gear': typeof GearRoute
+  '/performance': typeof PerformanceRoute
   '/safety': typeof SafetyRoute
   '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/facilitate': typeof FacilitateRoute
   '/gear': typeof GearRoute
+  '/performance': typeof PerformanceRoute
   '/safety': typeof SafetyRoute
   '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/facilitate': typeof FacilitateRoute
   '/gear': typeof GearRoute
+  '/performance': typeof PerformanceRoute
   '/safety': typeof SafetyRoute
   '/groups/$groupId': typeof GroupsGroupIdRoute
   '/intake/result': typeof IntakeResultRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/facilitate'
     | '/gear'
+    | '/performance'
     | '/safety'
     | '/groups/$groupId'
     | '/intake/result'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/facilitate'
     | '/gear'
+    | '/performance'
     | '/safety'
     | '/groups/$groupId'
     | '/intake/result'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/facilitate'
     | '/gear'
+    | '/performance'
     | '/safety'
     | '/groups/$groupId'
     | '/intake/result'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   FacilitateRoute: typeof FacilitateRoute
   GearRoute: typeof GearRoute
+  PerformanceRoute: typeof PerformanceRoute
   SafetyRoute: typeof SafetyRoute
   GroupsGroupIdRoute: typeof GroupsGroupIdRoute
   IntakeResultRoute: typeof IntakeResultRoute
@@ -195,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/gear'
       fullPath: '/gear'
       preLoaderRoute: typeof GearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/performance': {
+      id: '/performance'
+      path: '/performance'
+      fullPath: '/performance'
+      preLoaderRoute: typeof PerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safety': {
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   FacilitateRoute: FacilitateRoute,
   GearRoute: GearRoute,
+  PerformanceRoute: PerformanceRoute,
   SafetyRoute: SafetyRoute,
   GroupsGroupIdRoute: GroupsGroupIdRoute,
   IntakeResultRoute: IntakeResultRoute,
