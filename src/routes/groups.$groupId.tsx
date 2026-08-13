@@ -11,6 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { GearGrid, type GearItem } from "@/components/gear-list";
+import {
+  PUBLIC_GROUP_COLUMNS,
+  facilitatorName,
+  type BrowsableGroup,
+} from "@/lib/group-columns";
 
 function GearSection({ region }: { region: string }) {
   const { data: items } = useQuery({
