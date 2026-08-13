@@ -195,15 +195,12 @@ export const createGroup = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
 
-    const { data: isLeader } = await supabase.rpc("has_role", {
-      _user_id: userId,
-      _role: "leader",
-    });
-    const { data: isOnboarder } = await supabase.rpc("has_role", {
-      _user_id: userId,
-      _role: "onboarder",
-    });
-    if (!isLeader && !isOnboarder) {
+    const { data: roleRows } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId);
+    const roles = (roleRows ?? []).map((r) => r.role);
+    if (!roles.includes("leader") && !roles.includes("onboarder")) {
       return { ok: false as const, error: "Only group leaders and onboarders can open a group." };
     }
 
