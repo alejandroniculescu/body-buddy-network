@@ -10,6 +10,35 @@ import { PEER_CONDUCT, TECHNIQUES, modeLabel, regionLabel, toleranceLabel } from
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { GearGrid, type GearItem } from "@/components/gear-list";
+
+function GearSection({ region }: { region: string }) {
+  const { data: items } = useQuery({
+    queryKey: ["gear-items", region],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("gear_items")
+        .select("*")
+        .or(`region.is.null,region.eq.${region}`)
+        .order("sort_order", { ascending: true });
+      return (data ?? []) as GearItem[];
+    },
+  });
+
+  return (
+    <section className="mt-12">
+      <h2 className="text-2xl">Our gear</h2>
+      <p className="mt-2 text-sm text-muted-foreground">
+        What this group works with, plus the sponsor codes that come with it. Optional — none of it is
+        needed to take part.
+      </p>
+      <GearGrid items={items ?? []} />
+      <Link to="/gear" className="mt-5 inline-flex text-sm font-semibold underline underline-offset-4">
+        See the full kit →
+      </Link>
+    </section>
+  );
+}
 
 export const Route = createFileRoute("/groups/$groupId")({
   head: () => ({
