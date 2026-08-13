@@ -3,6 +3,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { FOCUS_STATEMENT, REGIONS, modeLabel, regionLabel, toleranceLabel } from "@/lib/domain";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  PUBLIC_GROUP_COLUMNS,
+  facilitatorName,
+  type BrowsableGroup,
+} from "@/lib/group-columns";
 
 export const Route = createFileRoute("/groups/")({
   head: () => ({
