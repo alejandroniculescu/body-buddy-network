@@ -116,8 +116,8 @@ function GroupsPage() {
                   <Meta label="Tolerance" value={toleranceLabel(g.tolerance_band)} />
                   <Meta label="Meets" value={`${modeLabel(g.mode)} · ${g.location}`} />
                   <Meta label="Cadence" value={g.cadence} />
-                  <Meta label="Leader" value={g.leader_name} />
-                  <Meta label="Onboarder" value={g.onboarder_name} />
+                  <Meta label="Leader" value={facilitatorName(g.leader_name)} />
+                  <Meta label="Onboarder" value={facilitatorName(g.onboarder_name)} />
                 </dl>
                 <div className="mt-6 flex items-center gap-4 pt-1">
                   <Link
